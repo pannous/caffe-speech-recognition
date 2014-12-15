@@ -1,0 +1,26 @@
+# The train/test net protocol buffer definition
+net: "numbers_net.prototxt"
+
+# test_iter specifies how many forward passes the test should carry out.
+test_iter: 25
+
+# Carry out testing every n training iterations.
+test_interval: 100
+
+# The base learning rate, momentum and the weight decay of the network.
+base_lr: 0.01
+momentum: 0.95
+weight_decay: 0.0005
+# The learning rate policy
+lr_policy: "inv"
+gamma: 0.001
+power: 0.75
+# Display every n iterations
+display: 10
+# The maximum number of iterations
+max_iter: 20000
+# snapshot intermediate results
+snapshot: 1000
+snapshot_prefix: "numbers"
+# solver mode: CPU or GPU
+solver_mode: GPU
