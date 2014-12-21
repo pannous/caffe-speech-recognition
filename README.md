@@ -18,7 +18,7 @@ Speech Recognition with the [caffe](https://github.com/BVLC/caffe) deep learning
 
  *) net topology: work in progress ...
 
-
+ *) todo: link TIMIT etc
 
 Theoretical background:
 
