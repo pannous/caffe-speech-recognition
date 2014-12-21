@@ -5,7 +5,7 @@ Speech Recognition with the [caffe](https://github.com/BVLC/caffe) deep learning
 
 1)  training digits:
 
-  *) get spectograph training images from http://pannous.net/spoken_numbers.zip (150 MB)
+  *) get spectograph training images from http://pannous.net/spoken_numbers.tar (470 MB)
   
   *) start train.sh
   
