@@ -13,7 +13,7 @@ layers {
   image_data_param {
     source: "train_index.txt"
     batch_size: 32 
-    is_color: false
+#    is_color: false
   }
   transform_param {
     scale: 0.00390625
@@ -28,7 +28,7 @@ layers {
   image_data_param {
     source: "test_index.txt"
     batch_size: 1 
-    is_color: false
+#    is_color: false
   }
   transform_param {
     scale: 0.00390625
