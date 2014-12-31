@@ -18,9 +18,9 @@ Speech Recognition with the [caffe](https://github.com/BVLC/caffe) deep learning
 
  *) net topology: work in progress ...
 
- *) todo: link TIMIT etc
+ *) todo: link TIMIT dataset, use new caffe LSTM layers etc
 
-Theoretical background:
+Theoretical background: papers
 
 [Ng et al / Baidu](http://arxiv.org/abs/1412.5567)
 
