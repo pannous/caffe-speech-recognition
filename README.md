@@ -22,6 +22,8 @@ Speech Recognition with the [caffe](https://github.com/BVLC/caffe) deep learning
 
 Theoretical background: papers
 
+A. Graves and N. Jaitly. Towards end-to-end speech recog- nition with recurrent neural networks. In ICML, 2014
+
 O. Vinyals, S. V. Ravuri, and D. Povey. Revisiting recurrent neural networks for robust ASR. In ICASSP, 2012
 
 [Ng et al / Baidu](http://arxiv.org/abs/1412.5567)
