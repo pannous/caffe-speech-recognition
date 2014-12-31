@@ -22,6 +22,8 @@ Speech Recognition with the [caffe](https://github.com/BVLC/caffe) deep learning
 
 Theoretical background: papers
 
+O. Vinyals, S. V. Ravuri, and D. Povey. Revisiting recurrent neural networks for robust ASR. In ICASSP, 2012
+
 [Ng et al / Baidu](http://arxiv.org/abs/1412.5567)
 
 [Hinton et al / Toronto](http://www.cs.toronto.edu/~hinton/absps/RNN13.pdf)
