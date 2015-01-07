@@ -3,6 +3,8 @@ Speech Recognition with BVLC caffe
 
 Speech Recognition with the [caffe](https://github.com/BVLC/caffe) deep learning framework
 
+
+
 1)  training spoken **numbers**:
 
   * get spectograph training images from http://pannous.net/spoken_numbers.tar (470 MB)
@@ -18,6 +20,7 @@ Speech Recognition with the [caffe](https://github.com/BVLC/caffe) deep learning
   needs "Build Python wrapper" in CMakeLists.txt and PYTHON_PATH environment variable  
 
 
+
 2) training **words**:
 
  * 4GB of training [data](https://www.dropbox.com/s/eb5zqskvnuj0r78/spoken_words.tar?dl=0) [*](http://pannous.net/spoken_words.tar)
@@ -26,6 +29,8 @@ Speech Recognition with the [caffe](https://github.com/BVLC/caffe) deep learning
 
  * todo: link [TIMIT dataset](https://catalog.ldc.upenn.edu/memberships) $27,000.00 membership fee?
  use new caffe LSTM layers etc
+
+
 
 
 Theoretical background: **papers**
