@@ -11,7 +11,7 @@ Speech Recognition with the [caffe](https://github.com/BVLC/caffe) deep learning
   
   * test with `ipython notebook test-speech-recognition.ipynb`
 
-    or `caffe test ...` or <caffe-root>/python/classify.py  
+    or `caffe test ...` or `<caffe-root>/python/classify.py`
 
   * online recognition with `./recognition-server.py` and `./record.py` script 
 
