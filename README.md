@@ -9,9 +9,9 @@ Speech Recognition with the [caffe](https://github.com/BVLC/caffe) deep learning
   
   * start ./train.sh
   
-  * test with ./test.sh script
+  * test with ipython notebook test-speech-recognition.ipynb  (or caffe test ... or <caffe-root>/python/classify.py ) 
 
-  * online recognition with recognition-server.py and record.py script ( online learning not testet yet )
+  * online recognition with recognition-server.py and record.py script (needs "Build Python wrapper" ON  in CMakeLists.txt and proper PYTHON_PATH environment variable set) 
 
 
 2) training **words**:
