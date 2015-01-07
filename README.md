@@ -8,8 +8,10 @@ Speech Recognition with the [caffe](https://github.com/BVLC/caffe) deep learning
   *) get spectograph training images from http://pannous.net/spoken_numbers.tar (470 MB)
   
   *) start train.sh
+
+  *) test with 
   
-  *) test with record.py script
+  *) online recognition with recognition-server.py and record.py script
 
 
 2) training words:
