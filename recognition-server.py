@@ -139,8 +139,10 @@ class SpeechClassifier(object):
         else:
             print("OK, not swapping any colors")
             swap = False
-        model = "words_deploy.prototxt"
-        weights = "words_iter_1000.caffemodel"
+        model = "numbers_deploy.prototxt"
+        weights = "numbers_iter_5000.caffemodel"
+#        model = "words_deploy.prototxt"
+#        weights = "words_iter_1000.caffemodel"
         print "model_def %s" % model
         print "model_file %s" % weights
         print "image_dims=(%d,%d)" % (int(image_dim), int(image_dim))
