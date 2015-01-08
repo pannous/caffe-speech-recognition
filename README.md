@@ -3,7 +3,8 @@ Speech Recognition with BVLC caffe
 
 Speech Recognition with the [caffe](https://github.com/BVLC/caffe) deep learning framework
 
-
+Caution: This project is very fresh and only the first of three milestones is accomplished: 
+Even now it might be useful if you just want to train a handful of commands/options (1,2,3..yes/no/cancel/...)
 
 1)  training spoken **numbers**:
 
@@ -27,10 +28,14 @@ Speech Recognition with the [caffe](https://github.com/BVLC/caffe) deep learning
 
  * net topology: work in progress ...
 
- * todo: link [TIMIT dataset](https://catalog.ldc.upenn.edu/memberships) $27,000.00 membership fee?
- use new caffe LSTM layers etc
+ * todo: use new caffe LSTM layers etc
 
 
+3) training **speech**:
+ * todo!
+ * 100GB of training data here: http://www.openslr.org/12/
+ * [TIMIT dataset](https://catalog.ldc.upenn.edu/memberships) $27,000.00 membership fee?
+ * combine with google n-grams
 
 
 Theoretical background: **papers**
