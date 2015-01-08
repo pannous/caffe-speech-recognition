@@ -40,3 +40,6 @@ O. Vinyals, S. V. Ravuri, and D. Povey. Revisiting recurrent neural networks for
 [Hinton et al / Toronto](http://www.cs.toronto.edu/~hinton/absps/RNN13.pdf)
 
 [good old Hinton](http://psych.stanford.edu/~jlm/pdfs/Hinton12IEEE_SignalProcessingMagazine.pdf)
+
+
+Also see the [Kaldi](http://kaldi.sourceforge.net/about.html) project, which seems a bit messy but already uses deep learning with LSTM 
