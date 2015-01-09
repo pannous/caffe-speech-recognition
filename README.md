@@ -7,7 +7,7 @@ Caution: This project is very fresh and only the first of three milestones is ac
 Even now it might be useful if you just want to train a handful of commands/options (1,2,3..yes/no/cancel/...)
 
 1)  training spoken **numbers**:
-  * get spectograph training images from http://pannous.net/spoken_numbers.tar (470 MB)
+  * get spectogram training images from http://pannous.net/spoken_numbers.tar (470 MB)
   * start ./train.sh
   * test with `ipython notebook test-speech-recognition.ipynb`
     or `caffe test ...` or `<caffe-root>/python/classify.py`
