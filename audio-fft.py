@@ -4,7 +4,7 @@ import pyaudio
 # import wave
 
 import subprocess
-import re     
+import re
 import flask
 import werkzeug
 import optparse
@@ -13,7 +13,7 @@ import tornado.httpserver
 from flask.ext.cors import CORS # Access-Control-Allow-Origin
 import skimage.io
 import json
-import traceback               
+import traceback
 # import opencv2
 import cv2
 import cv
@@ -36,10 +36,10 @@ cors = CORS(app)
 
 i = 0
 image=numpy.array(bytearray(os.urandom(512*512))) # 512,512)
-image=image.reshape(512,512)                
-                
+image=image.reshape(512,512)
+
 @app.route('/')
-def index():    
+def index():
 # return flask.render_template('index.html', has_result=False)
   return flask.render_template_string('look')
 
@@ -63,7 +63,7 @@ def classify_stream():
   except Exception as err:
         traceback.print_exc(file=sys.stdout)
         return flask.render_template_string(str(err))
-        
+
 @app.route('/classify_image', methods=['POST'])
 def classify_image():
   global i
@@ -83,7 +83,7 @@ def classify_image():
         traceback.print_exc(file=sys.stdout)
         return flask.render_template_string(str(err))
 
-        
+
 # if __name__ == '__main__':
 #   # image = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
 #   cv2.imwrite('RandomGray.png', image)
@@ -159,9 +159,13 @@ def record():
       data0 = numpy.fromstring(dataraw, dtype='int16')
       # data0 = numpy.fromstring(dataraw, dtype='int8')
       if(i<20 and numpy.sum(data0)<1000):
-        continue      
-        
+        continue
+
       r=numpy.append(r,data0)
+
+      # Hamming window
+#      for(int i = 0; i < SEGMENTATION_LENGTH;i++){ timeDomain[i] = (float) (( 0.53836 - ( 0.46164 * Math.cos( TWOPI * (double)i / (double)( SEGMENTATION_LENGTH - 1 ) ) ) ) * frameBuffer[i]); }
+
       # print r.size
       while offset < r.size - length :
         data = r[offset:offset+length]
@@ -171,7 +175,7 @@ def record():
         data = data[0:512]/256.0#.split(data,512)
         data = numpy.log2(data*0.05+1.0)#//*50.0;
         numpy.putmask(data, data > 255, 255)
-                    
+
         image[i] = data
         i = i+1
         if(i==512):
@@ -185,24 +189,24 @@ def record():
           # subprocess.call(["say"," %s"%result])
           # os.system("say  %s"%result)
           # subprocess.Popen("say"," %s"%result)
-          
+
           # cv2.imwrite('RandomGray%d.png'%i,image)
         # if cv2.waitKey(10) == 27: BREAKS portAudio !!
               # cv2.destroyWindow(winName)
               # return 0
     except IOError:
-      print 'todo: in threading'          
+      print 'todo: in threading'
     except  Exception as err:
           print('Upload image error: %s' % err)
           traceback.print_exc(file=sys.stdout)
 
-  
+
 def upload(image=None):
     if image==None:
       image_file="/me/ai/phonemes/5_Karen_260.wav.spec.png"
     # image_file="/me/ai/phonemes/spoken_numbers/7_Karen_260.wav.spec.png"
       image = skimage.io.imread(image_file).astype(numpy.uint8) #float32 BOTH OK!
-  
+
     post_data=json.dumps({'json':image.tolist()})
     req = urllib2.Request('http://192.168.1.24:5000/classify_image', post_data)
     response = urllib2.urlopen(req)
