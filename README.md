@@ -11,15 +11,16 @@ Even now it might be useful if you just want to train a handful of commands/opti
   * start ./train.sh
   * test with `ipython notebook test-speech-recognition.ipynb`
     or `caffe test ...` or `<caffe-root>/python/classify.py`
-  * online recognition with `./recognition-server.py` and `./record.py` script 
+  * 99% accuracy, nice!
+  * online recognition and learning with `./recognition-server.py` and `./record.py` script 
   needs "Build Python wrapper" in CMakeLists.txt and PYTHON_PATH environment variable  
-  * todo: add extra categories for a) silence b) common noises like typing, achoo c) ALL other noises
 
 
 2) training **words**:
  * 4GB of training [data](https://www.dropbox.com/s/eb5zqskvnuj0r78/spoken_words.tar?dl=0) [*](http://pannous.net/spoken_words.tar)
  * net topology: work in progress ...
  * todo: use new caffe LSTM layers etc
+ * todo: add extra categories for a) silence b) common noises like typing, achoo c) ALL other noises
 
 
 3) training **speech**:
