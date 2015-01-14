@@ -12,8 +12,8 @@ Even now it might be useful if you just want to train a handful of commands/opti
   * test with `ipython notebook test-speech-recognition.ipynb`
     or `caffe test ...` or `<caffe-root>/python/classify.py`
   * 99% accuracy, nice!
-  * online recognition and learning with `./recognition-server.py` and `./record.py` script 
-  needs "Build Python wrapper" in CMakeLists.txt and PYTHON_PATH environment variable  
+  * online recognition and learning with `./recognition-server.py` and `./record.py` scripts 
+     needs "Build Python wrapper" in CMakeLists.txt and PYTHON_PATH environment variable  
 
 
 2) training **words**:
