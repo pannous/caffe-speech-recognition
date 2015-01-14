@@ -1,4 +1,5 @@
 # The train/test net protocol buffer definition
+#net: "numbers_net.autoencoder.prototxt"
 net: "numbers_net.prototxt"
 
 # test_iter specifies how many forward passes the test should carry out.
