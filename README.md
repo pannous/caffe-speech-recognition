@@ -42,3 +42,4 @@ O. Vinyals, S. V. Ravuri, and D. Povey. Revisiting recurrent neural networks for
 
 
 Also see the [Kaldi](http://kaldi.sourceforge.net/about.html) project, which seems a bit messy but already uses deep learning with LSTM 
+Another experimental LSTM network, which works out-of-the-box: [Currennt](http://sourceforge.net/projects/currennt/), using state identities (183) instead of phoneme identities (61)
