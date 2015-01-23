@@ -46,5 +46,11 @@ O. Vinyals, S. V. Ravuri, and D. Povey. Revisiting recurrent neural networks for
 [good old Hinton](http://psych.stanford.edu/~jlm/pdfs/Hinton12IEEE_SignalProcessingMagazine.pdf)
 
 
+The **book**:
+[Automatic Speech Recognition: A Deep Learning Approach](http://www.amazon.com/Automatic-Speech-Recognition-Communication-Technology/dp/1447157788/ref=sr_1_1?ie=UTF8&qid=1422013427&sr=8-1&keywords=speech+recognition)  (Signals and Communication Technology) Hardcover – November 11, 2014 by Dong Yu (Author) and Li Deng (Author) 
+
+
+**Related work**
+
 Also see the [Kaldi](http://kaldi.sourceforge.net/about.html) project, which seems a bit messy but already uses deep learning with [LSTM](https://en.wikipedia.org/wiki/Long_short_term_memory)
 Another experimental LSTM network, which works out-of-the-box: [Currennt](http://sourceforge.net/projects/currennt/)
