@@ -15,6 +15,7 @@ Even now it might be useful if you just want to train a handful of commands/opti
   * online recognition and learning with `./recognition-server.py` and `./record.py` scripts
 
 ![Sample spectrogram](https://raw.githubusercontent.com/pannous/caffe-speech-recognition/master/0_Karen_160.png)
+
 Sample spectrogram, Karen uttering 'zero' with 160 words per minute.
 
 
