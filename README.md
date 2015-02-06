@@ -14,10 +14,15 @@ Even now it might be useful if you just want to train a handful of commands/opti
   * 99% accuracy, nice!
   * online recognition and learning with `./recognition-server.py` and `./record.py` scripts
 
+![Sample spectrogram, That's what she said, too laid?](https://raw.githubusercontent.com/pannous/caffe-speech-recognition/master/0_Karen_160.png)
+
+Sample spectrogram, Karen uttering 'zero' with 160 words per minute.
+
+
 2) training **words**:
  * 4GB of training [data](https://www.dropbox.com/s/eb5zqskvnuj0r78/spoken_words.tar?dl=0) [*](http://pannous.net/spoken_words.tar)
  * net topology: work in progress ...
- * todo: use new caffe LSTM layers etc
+ * todo: use [upcoming new](https://github.com/BVLC/caffe/issues/1653) caffe [LSTM](https://en.wikipedia.org/wiki/Long_short_term_memory) layers etc
  * todo: add extra categories for a) silence b) common noises like typing, achoo c) ALL other noises
 
 
@@ -41,4 +46,11 @@ O. Vinyals, S. V. Ravuri, and D. Povey. Revisiting recurrent neural networks for
 [good old Hinton](http://psych.stanford.edu/~jlm/pdfs/Hinton12IEEE_SignalProcessingMagazine.pdf)
 
 
-Also see the [Kaldi](http://kaldi.sourceforge.net/about.html) project, which seems a bit messy but already uses deep learning with LSTM 
+The **book**:
+[Automatic Speech Recognition: A Deep Learning Approach](http://www.amazon.com/Automatic-Speech-Recognition-Communication-Technology/dp/1447157788/ref=sr_1_1?ie=UTF8&qid=1422013427&sr=8-1&keywords=speech+recognition)  (Signals and Communication Technology) Hardcover – November 11, 2014 by Dong Yu (Author) and Li Deng (Author) 
+
+
+**Related work**
+
+Also see the [Kaldi](http://kaldi.sourceforge.net/about.html) project, which seems a bit messy but already uses deep learning with [LSTM](https://en.wikipedia.org/wiki/Long_short_term_memory)
+Another experimental LSTM network, which works out-of-the-box: [Currennt](http://sourceforge.net/projects/currennt/)

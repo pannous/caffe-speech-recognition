@@ -51,6 +51,26 @@ def static_proxy(image_file):
 i = 0
 buff = np.ndarray(shape=(512, 512), dtype=np.uint8)
 
+@app.route('/classify_upload', methods=['POST'])
+def classify_upload():
+    try:
+        # We will save the file to disk for possible data collection.
+        imagefile = flask.request.files['imagefile']
+        filename_ = str(datetime.datetime.now()).replace(' ', '_') + \
+            werkzeug.secure_filename(imagefile.filename)
+        filename = os.path.join(UPLOAD_FOLDER, filename_)
+        imagefile.save(filename)
+        logging.info('Saving to %s.', filename)
+        image = exifutil.open_oriented_im(filename)
+
+    except Exception as err:
+        logging.info('Error with uploaded image: %s', err)
+        return flask.render_template_string(('Cannot open uploaded image.')
+        )
+
+    result = app.clf.classify_image(image)
+    return flask.render_template_string(str(result))
+
 
 @app.route('/classify_stream', methods=['POST'])
 def classify_stream():

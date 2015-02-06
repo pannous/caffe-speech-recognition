@@ -7,6 +7,7 @@ import os
 import sys
 import json
 import re
+import numpy as np
 import threading
 import traceback   
 import urllib2
@@ -16,16 +17,13 @@ from os import system
 from platform import system as platform
 # from json import dumps, loads, JSONEncoder, JSONDecoder
 
+recognition_server_url='http://192.168.1.11:5000/classify_image'
+
 i = 0
 xFactor=1
 abort = False
 lock = False
-# image=numpy.array(bytearray(os.urandom(512*xFactor*512))) # 512,512)
-image = numpy.zeros(512*xFactor*512).astype(numpy.uint8)
-image = image.reshape(512*xFactor,512)    
-image[0] = numpy.zeros(512)
-image[1] = numpy.zeros(512)
-image[2] = numpy.zeros(512)
+image = numpy.ndarray(shape=(512, 512), dtype=np.uint8)   
 last = image
 
 winName="Record speech"
@@ -113,7 +111,7 @@ def record():
         teach(lock)
       # print summ  
 
-      if(i<20 and summ<23456): #  coarse filtering, good for anything?
+      if(summ<123456): #  coarse filtering, good for anything?
         continue
       # if(i<20 and (summ<180 or last<180)):
       #        continue      
@@ -132,9 +130,9 @@ def record():
         # data = data[0:512]/256.0 #/4 #WHY 4 ?? 2^16=2^8*...
         data = data[-512-1:-1]/256.0 #/4 #WHY 4 ?? 2^16=2^8*...
         summ=numpy.sum(data)
-        if(summ<1000): 
+        if(summ<3000): 
           if i<30 :
-            i=3#reset()
+            i=0#reset()
             # break
             continue
           else:
@@ -172,20 +170,29 @@ def record():
           print('Record sound error: %s' % err)
           traceback.print_exc(file=sys.stdout)
 
+def analyze(result):
+  start_consonants="_ br bl chr fl fr gl gr kn kl kr pf pr pl qu schm schn schr schl schw sk skr st str tr wr b c d f g h j k l m n p r s t w x z".split(' ');
+  result=np.fromstring(result[1:-1], dtype=float, sep=' ')
+  # result=list(result)
+  best=result.argmax()
+  print best
+  category=start_consonants[best]
+  return category  
   
 def upload(image=None,clazz=None):
     global lock
     lock=None # clear now!
     if image==None:
-      image_file="/me/ai/phonemes/5_Karen_260.wav.spec.png"
+      image_file="0_Karen_160.wav.spec.png"
     # image_file="/me/ai/phonemes/spoken_numbers/7_Karen_260.wav.spec.png"
       image = skimage.io.imread(image_file).astype(numpy.uint8) #float32 BOTH OK!
   
     post_data=json.dumps({'json':image.tolist(),'class':clazz,'net':'speech'})
-    req = urllib2.Request('http://192.168.1.24:5000/classify_image', post_data)
+    req = urllib2.Request(recognition_server_url, post_data)
     print "sent"
     response = urllib2.urlopen(req)
     result = response.read()
+    # result=analyze(result)
     print "YAY %s"%result
     return result
 
