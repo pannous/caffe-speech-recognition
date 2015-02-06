@@ -51,6 +51,26 @@ def static_proxy(image_file):
 i = 0
 buff = np.ndarray(shape=(512, 512), dtype=np.uint8)
 
+@app.route('/classify_upload', methods=['POST'])
+def classify_upload():
+    try:
+        # We will save the file to disk for possible data collection.
+        imagefile = flask.request.files['imagefile']
+        filename_ = str(datetime.datetime.now()).replace(' ', '_') + \
+            werkzeug.secure_filename(imagefile.filename)
+        filename = os.path.join(UPLOAD_FOLDER, filename_)
+        imagefile.save(filename)
+        logging.info('Saving to %s.', filename)
+        image = exifutil.open_oriented_im(filename)
+
+    except Exception as err:
+        logging.info('Error with uploaded image: %s', err)
+        return flask.render_template_string(('Cannot open uploaded image.')
+        )
+
+    result = app.clf.classify_image(image)
+    return flask.render_template_string(str(result))
+
 
 @app.route('/classify_stream', methods=['POST'])
 def classify_stream():
@@ -169,18 +189,18 @@ class SpeechClassifier(object):
                 ])
                 self.labels = labels_df.sort('synset_id')['name'].values
 
-    def classify_image(self, image):
-        starttime = time.time()
-        data = np.asarray([self.net.preprocess('data', image)])
-        out = self.net.forward_all(data=data)
-        print "classification %s" % out['words0s'].flatten()
+def classify_image(self, image):
+    starttime = time.time()
+    data = np.asarray([self.net.preprocess('data', image)])
+    out = self.net.forward_all(data=data)
+    print "classification %s" % out['words0s'].flatten()
 #        print "classification class: %d" % out['prob'][0].argmax(axis=0)
 #        print "probability %d" % out['prob'][0].max(axis=0)
-        endtime = time.time()
-        meta = out['words0s'][0].max(axis=0)
+    endtime = time.time()
+    meta = out['words0s'][0].max(axis=0)
 #        bet_result = out['words0s'][0].argmax(axis=0)
-        bet_result = out['words0s'].flatten()
-        return (True, meta, bet_result, '%.3f' % (endtime - starttime))
+    bet_result = out['words0s'].flatten()
+    return (True, meta, bet_result, '%.3f' % (endtime - starttime))
 
 
 def start_tornado(app, port=5000):

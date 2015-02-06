@@ -23,12 +23,7 @@ i = 0
 xFactor=1
 abort = False
 lock = False
-# image=numpy.array(bytearray(os.urandom(512*xFactor*512))) # 512,512)
-image = numpy.zeros(512*xFactor*512).astype(numpy.uint8)
-image = image.reshape(512*xFactor,512)    
-image[0] = numpy.zeros(512)
-image[1] = numpy.zeros(512)
-image[2] = numpy.zeros(512)
+image = numpy.ndarray(shape=(512, 512), dtype=np.uint8)   
 last = image
 
 winName="Record speech"
