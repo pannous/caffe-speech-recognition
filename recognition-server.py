@@ -128,10 +128,11 @@ class SpeechClassifier(object):
     default_args['image_dim'] = 256
     default_args['raw_scale'] = 255.
     default_args['swap_colors_wtf'] = False
+    default_args['grey'] = False
     default_args['gpu_mode'] = True
 
     def __init__(self, model_def_file, pretrained_model_file, mean_file,
-                 raw_scale, class_labels_file, image_dim, gpu_mode, swap_colors_wtf):
+                 raw_scale, class_labels_file, image_dim, gpu_mode, swap_colors_wtf,grey):
         logging.info('Loading net and associated files...')
         if swap_colors_wtf:
             print("swap_colors_wtf")
@@ -139,10 +140,13 @@ class SpeechClassifier(object):
         else:
             print("OK, not swapping any colors")
             swap = False
-        model = "numbers_deploy.prototxt"
-        weights = "numbers_iter_5000.caffemodel"
+#        model = "numbers_deploy.prototxt"
+#        weights = "numbers_iter_47000.caffemodel"
+        model = "syllables_deploy.prototxt"
+        weights = "syllables_iter_27000.caffemodel"
 #        model = "words_deploy.prototxt"
 #        weights = "words_iter_1000.caffemodel"
+        print "gray mode = %s" % grey
         print "model_def %s" % model
         print "model_file %s" % weights
         print "image_dims=(%d,%d)" % (int(image_dim), int(image_dim))
@@ -154,9 +158,9 @@ class SpeechClassifier(object):
         # better do caffe.Classifier(...).predict by hand:
         self.net = caffe.Net(model, weights)
 #        help(self.net)
-        self.net.set_phase_test()
+        caffe.set_phase_test()
         self.net.set_raw_scale('data', 255.0)
-        self.net.set_mode_gpu()
+        caffe.set_mode_gpu()
 
         if class_labels_file:
             with open(class_labels_file) as f:
@@ -173,13 +177,14 @@ class SpeechClassifier(object):
         starttime = time.time()
         data = np.asarray([self.net.preprocess('data', image)])
         out = self.net.forward_all(data=data)
-        print "classification %s" % out['words0s'].flatten()
-#        print "classification class: %d" % out['prob'][0].argmax(axis=0)
-#        print "probability %d" % out['prob'][0].max(axis=0)
+        label_field='prob' #'fc8' # words0s ip2?autoencoded
+        print "classification %s" % out[label_field].flatten()
+        print "classification class: %d" % out['prob'][0].argmax(axis=0)
+        print "probability %d" % out['prob'][0].max(axis=0)
         endtime = time.time()
-        meta = out['words0s'][0].max(axis=0)
-#        bet_result = out['words0s'][0].argmax(axis=0)
-        bet_result = out['words0s'].flatten()
+        meta = out[label_field][0].max(axis=0)
+#        bet_result = out[label_field][0].argmax(axis=0)
+        bet_result = out[label_field].flatten()
         return (True, meta, bet_result, '%.3f' % (endtime - starttime))
 
 
@@ -230,6 +235,9 @@ def start_from_terminal(app):
         '-0', '--grey',
         action='store_true',
         help="The net expects gray images")
+    parser.add_option(
+        '-1', '--gray',
+        action='store_true')
 
     opts, args = parser.parse_args()
     default_args = SpeechClassifier.default_args
@@ -240,9 +248,12 @@ def start_from_terminal(app):
         default_args.update({'pretrained_model_file': opts.weights})
     if opts.labels:
         default_args.update({'class_labels_file': opts.labels})
+    if opts.grey or opts.gray:
+        default_args.update({'grey':opts.grey})
     # default_args.update({'image_dim': opts.image_dim})
     # print "opts.dont_swap_colors_wtf %s" % str(opts.dont_swap_colors_wtf)
     # default_args.update({'swap_colors_wtf': not opts.dont_swap_colors_wtf})
+
 
     # Initialize classifier
     app.clf = SpeechClassifier(**SpeechClassifier.default_args)
