@@ -39,7 +39,7 @@ A. Graves and N. Jaitly. Towards end-to-end speech recognition with recurrent ne
 
 O. Vinyals, S. V. Ravuri, and D. Povey. Revisiting recurrent neural networks for robust ASR. [In ICASSP, 2012](http://research.microsoft.com/pubs/164627/4085.pdf)
 
-[Ng et al / Baidu](http://arxiv.org/abs/1412.5567)
+[Andrew Ng et al](http://arxiv.org/pdf/1406.7806.pdf) / [Baidu](http://arxiv.org/abs/1412.5567)
 
 [Hinton et al / Toronto](http://www.cs.toronto.edu/~hinton/absps/RNN13.pdf)
 
