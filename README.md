@@ -45,6 +45,7 @@ O. Vinyals, S. V. Ravuri, and D. Povey. Revisiting recurrent neural networks for
 
 [good old Hinton](http://psych.stanford.edu/~jlm/pdfs/Hinton12IEEE_SignalProcessingMagazine.pdf)
 
+[Schmidhuber et al](http://arxiv.org/pdf/1402.3511v1.pdf) using new 'ClockWork-RNNs'
 
 The **book**:
 [Automatic Speech Recognition: A Deep Learning Approach](http://www.amazon.com/Automatic-Speech-Recognition-Communication-Technology/dp/1447157788/ref=sr_1_1?ie=UTF8&qid=1422013427&sr=8-1&keywords=speech+recognition)  (Signals and Communication Technology) Hardcover – November 11, 2014 by Dong Yu (Author) and Li Deng (Author) 
