@@ -30,7 +30,7 @@ Sample spectrogram, Karen uttering 'zero' with 160 words per minute.
 3) training **speech**:
  * todo!
  * 100GB of training data here: http://www.openslr.org/12/
- * [TIMIT dataset](https://catalog.ldc.upenn.edu/memberships) $27,000.00 membership fee?
+ * [TIMIT dataset](https://catalog.ldc.upenn.edu/memberships) $27,000.00 membership fee or [$250 for non-members](https://catalog.ldc.upenn.edu/LDC93S1)?
  * combine with google n-grams
 
 
