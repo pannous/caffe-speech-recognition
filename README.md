@@ -2,9 +2,10 @@ Speech Recognition with BVLC caffe
 ==================================
 
 Speech Recognition with the [caffe](https://github.com/BVLC/caffe) deep learning framework
+
 UPDATE: We migrated to [tensorflow](https://github.com/pannous/tensorflow-speech-recognition/)
 
-Caution: This project is very fresh and only the first of three milestones is accomplished: 
+This project is quite fresh and only the first of three milestones is accomplished: 
 Even now it might be useful if you just want to train a handful of commands/options (1,2,3..yes/no/cancel/...)
 
 1)  training spoken **numbers**:
