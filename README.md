@@ -26,7 +26,7 @@ Sample spectrogram, Karen uttering 'zero' with 160 words per minute.
  * net topology: work in progress ...
  * todo: use [upcoming new](https://github.com/BVLC/caffe/issues/1653) caffe [LSTM](https://en.wikipedia.org/wiki/Long_short_term_memory) layers etc
  * UPDATE [LSTMs get rolling](https://github.com/BVLC/caffe/pull/1873), [still not merged](https://github.com/BVLC/caffe/pull/2033)
- * UPDATE since the caffe project leaders have a hindering merging policy and this pull request was shifted many times without ever being merged, we migrated to [tensorflow](https://github.com/pannous/tensorflow-speech-recognition)
+ * UPDATE since the caffe project leaders have a hindering merging policy and this pull request was shifted many times without ever being merged, we are migrating to [tensorflow](https://github.com/pannous/tensorflow-speech-recognition)
  * todo: add extra categories for a) silence b) common noises like typing, achoo c) ALL other noises
 
 
