@@ -22,7 +22,7 @@ Sample spectrogram, Karen uttering 'zero' with 160 words per minute.
 
 
 2) training **words**:
- * 4GB of training [data](https://www.dropbox.com/s/eb5zqskvnuj0r78/spoken_words.tar?dl=0) [*](http://pannous.net/spoken_words.tar)
+ * 4GB of training [data](https://dl.dropboxusercontent.com/u/23615316/spoken_words.tar)
  * net topology: work in progress ...
  * todo: use [upcoming new](https://github.com/BVLC/caffe/issues/1653) caffe [LSTM](https://en.wikipedia.org/wiki/Long_short_term_memory) layers etc
  * UPDATE [LSTMs get rolling](https://github.com/BVLC/caffe/pull/1873), [still not merged](https://github.com/BVLC/caffe/pull/2033)
